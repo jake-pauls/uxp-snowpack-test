@@ -1,10 +1,10 @@
-# New Project
+# uxp-snowpack-test 
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
 ## Available Scripts
 
-### npm start
+### yarn start
 
 Runs the app in the development mode.
 Open http://localhost:8080 to view it in the browser.
@@ -12,18 +12,49 @@ Open http://localhost:8080 to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### npm test
-
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
-
-### npm run build
+### yarn build
 
 Builds a static copy of your site to the `build/` folder.
 Your app is ready to be deployed!
 
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.mjs` config file.
+### yarn watch
 
-### Q: What about Eject?
+Alternative watch method, uses nodemon to track file changes and then executes `snowpack build` to rebundle JS
 
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+## Steps to Reproduce UXP Bug
+
+#### Snowpack Watcher
+
+1. Load plugin into UXP and enable 'watch' mode
+
+2. Run the development environment in watch mode, the plugin build output will be put into a `build` directory
+
+```
+$ yarn watch
+```
+
+3. Make a change to `src/App.svelte` in and wait for rebuild
+
+4. Changes aren't reflected or updated in UXP panel
+
+5. Verify that the `build/dist/App.svelte.js` file changes on rebuilds
+
+6. Changes made in `src` are reflected in the build output 
+
+#### Nodemon
+
+1. Load plugin into UXP and enable 'watch' mode
+
+2. Run the development environment in watch mode using **nodemon**, the plugin build output will still be put into a `build` directory
+
+```
+$ yarn nodemon
+```
+
+3. Make a change to `src/App.svelte` in and wait for rebuild
+
+4. Changes aren't reflected or updated in UXP panel
+
+5. Verify that the `build/dist/App.svelte.js` file changes on rebuilds
+
+6. Changes made in `src` are reflected in the build output 

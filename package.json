@@ -1,8 +1,17 @@
 {
+  "name": "uxp-snowpack-test",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jake Pauls",
+    "email": "jakepauls99@gmail.com",
+    "url": "https://jakepauls.dev"
+  },
+  "description": "Repro of watcher issues when using Snowpack to bundle a UXP plugin",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "web-test-runner \"src/**/*.test.js\""
+    "watch": "snowpack build --watch",
+    "nodemon": "nodemon -w src -e svelte,js,html,css -x yarn build"
   },
   "dependencies": {
     "svelte": "^3.37.0"
@@ -10,10 +19,8 @@
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.1.0",
     "@snowpack/plugin-svelte": "^3.6.1",
-    "@snowpack/web-test-runner-plugin": "^0.2.2",
-    "@testing-library/svelte": "^3.0.3",
-    "@web/test-runner": "^0.13.3",
-    "chai": "^4.3.4",
+    "@snowpack/plugin-webpack": "^3.0.0",
+    "nodemon": "^2.0.12",
     "snowpack": "^3.3.7"
   }
 }
