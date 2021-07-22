@@ -8,7 +8,6 @@
   },
   "description": "Repro of watcher issues when using Snowpack to bundle a UXP plugin",
   "scripts": {
-    "start": "snowpack dev",
     "build": "snowpack build",
     "watch": "snowpack build --watch",
     "nodemon": "nodemon -w src -e svelte,js,html,css -x yarn build"
